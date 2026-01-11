@@ -1,0 +1,30 @@
+display:
+  # 这将改变窗口的显示
+  win:
+    row_num: 7
+    font: "Microsoft YaHei UI"
+    font_size: 10
+  # 这将改变输出md文件的排版
+  md:
+    # sort 键的所有值
+    # atz: 按学号依次递增, zta与之相反
+    # score+: 按加的分依次递增, score-与之相反
+    sort: 'atz'
+  theme: light
+namelist:
+- sexy
+- sleepy
+- stupid
+- sweet
+points:
+  _3_days: 1
+  _7_days: 2.5
+timer:
+  afternoon: '14:05'
+  morning: '7:05'
+  'on': true
+# 与项目有关的设置，与代码无关
+project:
+  url: "https://github.com/Jack-tendy-538/scoring_early_bird"   
+  license: "MIT License"
+  version: "1.0.0.4"
