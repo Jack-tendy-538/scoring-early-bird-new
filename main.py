@@ -307,20 +307,20 @@ class AttendanceSystem:
         # 获取阶段时长
         max_day = 7  # 默认值
         if students and name in morning_students:
-            max_day = morning_students[name].max_days
+            max_day = len(morning_students[name].history)
         
         # 生成Markdown表格
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md_content = f"""# 阶段性考勤汇总报告
 
-    **生成时间**: {timestamp}  
-    **本阶段结束，开始新的一阶段**
-    > 本阶段时长: {max_day}天
+**生成时间**: {timestamp}  
+**本阶段结束，开始新的一阶段**
+> 本阶段时长: {max_day}天
 
-    ## 本阶段分数统计
+## 本阶段分数统计
 
-    | 姓名 | 上午分数 | 下午分数 | 总分数 |
-    |------|----------|----------|--------|
+| 姓名 | 上午分数 | 下午分数 | 总分数 |
+|------|----------|----------|--------|
     """
         
         # 添加每个学生的数据行
@@ -329,15 +329,14 @@ class AttendanceSystem:
         
         # 添加分数说明
         md_content += f"""
+## 分数说明
 
-    ## 分数说明
+- 连续出勤3天及以上但不足7天: {self.setting['points']['_3_days']}分/次
+- 连续出勤7天: {self.setting['points']['_7_days']}分/次
 
-    - 连续出勤3天及以上但不足7天: {self.setting['points']['_3_days']}分/次
-    - 连续出勤7天: {self.setting['points']['_7_days']}分/次
+## 注意
 
-    ## 注意
-
-    本阶段考勤数据已重置，下一阶段将重新开始统计。
+本阶段考勤数据已重置，下一阶段将重新开始统计。
     """
         
         # 保存Markdown文件
@@ -482,22 +481,7 @@ class AttendanceGUI:
             students_data = self.system.load_student_data(session)
             
             # 显示结果
-            result_text = f"{session_name}考勤已记录:\n"
-            for name in present_students:
-                # 安全检查：确保学生存在于数据中
-                if name in students_data:
-                    streak = students_data[name].get_current_streak()
-                    result_text += f"{name}: 连续出勤{streak}天\n"
-                else:
-                    result_text += f"{name}: 数据不存在\n"
-            
-            # 显示分数摘要
-            result_text += "\n分数统计:\n"
-            for name in students_list:
-                if name in scores:
-                    score_3, score_7 = scores[name]
-                    if score_3 > 0 or score_7 > 0:
-                        result_text += f"{name}: 3天{score_3}分, 7天{score_7}分\n"
+            result_text = f"{session_name}今日已签到{len(students_data)}"
             
             ms.showinfo("考勤结果", result_text)
             attendance_win.destroy()
