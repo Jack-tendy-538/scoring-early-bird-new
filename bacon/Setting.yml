@@ -25,6 +25,7 @@ timer:
   'on': true
 # 与项目有关的设置，与代码无关
 project:
-  url: "https://github.com/Jack-tendy-538/scoring_early_bird"   
+  url: "https://github.com/Jack-tendy-538/scoring-early-bird-new"   
   license: "MIT License"
-  version: "1.0.0.4"
+  version: "1.0.0.0"
+
