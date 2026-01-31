@@ -5,7 +5,7 @@
 
 This is a desktop habit tracking and check-in incentive tool specifically designed for **individuals or small teams**. Through automated point rewards and scheduled reminders, it transforms tedious repetitive behaviors into an engaging growth game, helping you effortlessly establish and maintain good habits.
 -----
-### **What pain points does it address?**? **
+### **What pain points does it address?**
 
 1. **Lack of Motivation, Hard to Stay Consistent**: Relying solely on willpower for habit tracking often leads to giving up halfway. This project introduces a **gamified points system**, offering visible rewards for continuous check-ins and providing sustained positive feedback.
 2. **Prone to forgetting, lacks reminders**: You often forget to clock in when busy. The tool features **smart scheduled reminders**, popping up windows at preset times to ensure you never miss a record.
@@ -57,4 +57,5 @@ Current laws have yet to establish a definitive conclusion on the copyright owne
 When submitting contributions to this project, you must ensure:
 1. Your contribution is your own original work, or;
 2. You have clearly disclosed the source of the AI-generated portion and confirmed its license compatibility with this project.
+
 3. You agree that your contributions will also be licensed under the MIT License.
