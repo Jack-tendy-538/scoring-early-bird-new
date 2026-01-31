@@ -321,7 +321,7 @@ class AttendanceSystem:
 
 | 姓名 | 上午分数 | 下午分数 | 总分数 |
 |------|----------|----------|--------|
-    """
+"""
         
         # 添加每个学生的数据行
         for data in report_data:
@@ -463,12 +463,15 @@ class AttendanceGUI:
     
     def submit_attendance(self, session, session_name, attendance_win, vars, students_list):
         """提交考勤记录"""
+        settings_pronoun = self.system.setting.get('display', {}).get('win', {}).get('pronoun', '同学')
         try:
             # 获取选中的学生
             present_students = [name for name, var in vars.items() if var.get()]
             
+            # 从settings.yml中读取display/win/pronoun设置
+
             if not present_students:
-                ms.showwarning("警告", "请至少选择一名学生")
+                ms.showwarning("警告", "请至少选择一名%s后再提交考勤。" % settings_pronoun)
                 return
             
             # 记录考勤
@@ -491,7 +494,7 @@ class AttendanceGUI:
                 del self.attendance_windows[session]
                 
         except KeyError as e:
-            ms.showerror("数据错误", f"学生数据不完整: {str(e)}\n请检查设置文件中的学生名单。")
+            ms.showerror("数据错误", f"{settings_pronoun}数据不完整: {str(e)}\n请检查设置文件中的{settings_pronoun}名单。")
         except Exception as e:
             ms.showerror("错误", f"提交考勤时出错:\n{str(e)}")
     
@@ -604,8 +607,8 @@ class AttendanceGUI:
         # 使用 ttk.Frame
         main_frame = ttk.Frame(attendance_win, padding=10)
         main_frame.pack(fill='both', expand=True)
-
-        ttk.Label(main_frame, text=f"请{session_name}早到的同学自己上来打勾:").pack(pady=(0, 10))
+        settings_pronoun = self.system.setting.get('display', {}).get('win', {}).get('pronoun', '他们')
+        ttk.Label(main_frame, text=f"请{session_name}早到的{settings_pronoun}上来打勾:").pack(pady=(0, 10))
 
         # 复选框容器
         checkboxes_frame = ttk.Frame(main_frame)

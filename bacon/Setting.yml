@@ -4,6 +4,7 @@ display:
     row_num: 7
     font: "Microsoft YaHei UI"
     font_size: 10
+    pronoun : "同学"
   # 这将改变输出md文件的排版
   md:
     # sort 键的所有值
