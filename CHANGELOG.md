@@ -35,7 +35,7 @@ All notable changes to this project will be documented in this file.
 - 升级前请备份现有数据与配置文件。
 - 若使用自定义配置，请参考 config.sample.yaml 校验字段兼容性。
 - 安装（开发环境示例）：
-  git clone https://github.com/Jack-tendy-538/scoring_early_bird.git
+  git clone https://github.com/Jack-tendy-538/scoring-early-bird-new.git
   cd scoring_early_bird
   pip install -e .
 
@@ -45,7 +45,6 @@ All notable changes to this project will be documented in this file.
 
 贡献者
 - @Jack-tendy-538（维护者）
-- 其它贡献者：如有请补充具体用户名。
 
 附：供 Releases 页面粘贴的发布草稿（可直接复制）
 

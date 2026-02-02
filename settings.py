@@ -146,7 +146,7 @@ class SettingsApp:
             },
             "namelist": ["sweet", "sleepy", "stupid", "sexy"],
             "project": {
-                "url": "https://github.com/Jack-tendy-538/score_early_bird",
+                "url": "https://github.com/Jack-tendy-538/scoring-early-bird-new",
                 "license": "MIT License",
                 "version": "1.0.0.3"
             }
