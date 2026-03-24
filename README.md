@@ -1,5 +1,7 @@
 # score_early_bird
 
+**此仓库已停止开发**
+
 This project is also available in [English](README_en.md).
 
 这是一款专为**个人或小型团队**设计的桌面端习惯追踪与打卡激励工具。它通过自动化的积分奖励和定时提醒，将枯燥的重复行为变为有趣的成长游戏，帮助你轻松建立并坚持好习惯。
